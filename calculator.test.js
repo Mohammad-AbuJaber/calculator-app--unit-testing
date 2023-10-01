@@ -77,4 +77,15 @@ describe('Calculator', () => {
             expect(() => calc(...operands)).toThrow('Invalid input');
         });
     });
+    describe('Handling an Unknown Amount of Numbers', () => {
+        it('should handle an unknown amount of numbers', () => {
+            const operands1 = [1, '+', 2, '+', 3, '+', 4];
+            const result1 = calc(...operands1);
+            expect(result1).toBe(10);
+
+            const operands2 = [1, '+', 2, '+', 3, '+', 4, '+', 5];
+            const result2 = calc(...operands2);
+            expect(result2).toBe(15);
+        });
+    });
 });
