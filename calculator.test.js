@@ -88,4 +88,10 @@ describe('Calculator', () => {
             expect(result2).toBe(15);
         });
     });
+    describe('Insufficient Number of Arguments', () => {
+        it('should throw an error for insufficient number of arguments', () => {
+            const operands = [2, '+'];
+            expect(() => calc(...operands)).toThrow('Insufficient number of arguments');
+        });
+    });
 });
