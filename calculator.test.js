@@ -26,4 +26,28 @@ describe('Calculator', () => {
             expect(result).toBe(5);
         });
     });
+    describe('Edge Cases and Error Handling', () => {
+        it('should throw an error when dividing by zero', () => {
+            const operands = [6, '/', 0];
+            expect(() => calc(...operands)).toThrow('Division by zero');
+        });
+
+        it('should handle negative numbers correctly', () => {
+            const operands = [-8, '+', 5];
+            const result = calc(...operands);
+            expect(result).toBe(-3);
+        });
+
+        it('should handle decimal numbers correctly', () => {
+            const operands = [3.5, '*', 2];
+            const result = calc(...operands);
+            expect(result).toBe(7);
+        });
+
+        it('should ignore numbers larger than 1000', () => {
+            const operands = [2, '+', 1001];
+            const result = calc(...operands);
+            expect(result).toBe(2);
+        });
+    });
 });
